@@ -17,7 +17,7 @@ if 'logged_in' not in st.session_state:
 
 # --- LOGIN / SIGNUP PAGE ---
 if not st.session_state['logged_in']:
-    st.title("🔐 Secure Budget Vault")
+    st.title(" Secure Budget Vault")
     
     tab1, tab2 = st.tabs(["Login", "Create Account"])
     
