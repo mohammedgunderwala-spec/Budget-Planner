@@ -31,9 +31,9 @@ if not st.session_state['logged_in']:
     with tab2:
         new_user = st.text_input("Choose Username")
         new_pass = st.text_input("Choose Password", type="password")
-        if st.button("Create Secure Account"):
+        if st.button("Create Your Account"):
             if add_user(new_user, new_pass):
-                st.success("Account Encrypted & Saved!")
+                st.success("Account Saved!")
             else:
                 st.error("Username already exists in vault.")
 
@@ -82,12 +82,12 @@ else:
             st.bar_chart(chart_data)
             
         # --- ADVANCED UI: DATA EXPORT ---
-        st.subheader("Transaction Audit Trail")
+        st.subheader("Transaction History")
         st.dataframe(df[['date', 'category', 'amount', 'type']], use_container_width=True)
         
         csv = df.to_csv(index=False).encode('utf-8')
         st.download_button(
-            label="Download Audit Report (CSV)",
+            label="Download Transaction Report (CSV)",
             data=csv,
             file_name=f"{st.session_state['username']}_report.csv",
             mime='text/csv'
